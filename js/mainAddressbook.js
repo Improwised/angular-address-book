@@ -1,0 +1,1 @@
+angular.module('addressbook', ['LocalStorageModule', 'ngResource', 'ngRoute']);

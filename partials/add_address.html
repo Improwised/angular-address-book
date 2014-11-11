@@ -1,0 +1,124 @@
+<!-- add new address -->
+<div class="col-lg-12">
+
+  <div class="alert alert-info" ng-show="sucessAddressAdd" role="alert">
+    <div ng-show="add">New address Added</div>
+    <div ng-show="edit">Edited Successfully</div>
+  </div>
+
+  <div class="block">
+
+    <div class="block-header">
+      <div class="clearfix">
+        <div class="block-title pull-left">
+          <h2 ng-show="add">Add New Address</h2>
+          <h2 ng-show="edit">Edit Address</h2>
+        </div>
+      </div>
+    </div>
+
+    <div class="block-content">
+
+      <form role="form" name="addAdderess" novalidate>
+
+        <div class="clearfix">
+          <div class="col-lg-2 col-lg-offset-1 form-lable">
+            <label>Name:</label>
+          </div>
+          <div class="col-lg-4">
+            <input type="text" class="form-control" placeholder="First Name" name="firstname" ng-model="f_name" required ng-minlength="2">
+            <div class="error" ng-show="addAdderess.firstname.$error.minlength && submitted"> Too short!</div>
+            <div class="error" ng-show="addAdderess.firstname.$error.required && submitted"> Please Enter Your First Name</div>
+          </div>
+          <div class="hidden-lg"><br></div>
+          <div class="col-lg-4">
+            <input type="text" class="form-control" placeholder="Last Name" name="lastname" ng-model="l_name" required ng-minlength="2">
+            <div class="error" ng-show="addAdderess.lastname.$error.minlength && submitted"> Too short!</div>
+            <div class="error" ng-show="addAdderess.lastname.$error.required && submitted"> Please Enter Your Last Name</div>
+          </div>
+        </div>
+        <!--  -->
+        <br>
+
+
+
+
+
+        <div class="clearfix">
+          <div class="col-lg-2 col-lg-offset-1 form-lable">
+            <label>Phone Number:</label>
+          </div>
+          <div class="col-lg-8">
+            <input type="number" class="form-control" placeholder="10 Digit Phone Number" ng-pattern="/^[0-9]+$/" name="no" ng-model="p_number" required ng-maxlength="10" maxlength="10">
+            <div class="error" ng-show="addAdderess.no.$error.maxlength && submitted">Sorry , This is Invalid Number</div>
+            <div class="error" ng-show="addAdderess.no.$error.required && submitted">Please Enter Your 10 Digit Number</div>
+            <div class="error" ng-show="form.no.$error.pattern && submitted">Please Provide Valid Number</div>
+          </div>
+        </div>
+        <!--  -->
+        <br>
+
+        <div class="clearfix">
+          <div class="col-lg-2 col-lg-offset-1 form-lable">
+            <label>Address:</label>
+          </div>
+          <div class="col-lg-8">
+            <input type="text" class="form-control" placeholder="Your Street" name="street" ng-model="street" required ng-minlength="5">
+            <div class="error" ng-show="addAdderess.street.$error.minlength && submitted"> Too short!</div>
+            <div class="error" ng-show="addAdderess.street.$error.required && submitted"> Please Enter Your Street</div>
+          </div>
+        </div>
+        <!--  -->
+        <br>
+
+        <div class="clearfix">
+          <div class="col-lg-2 col-lg-offset-1">
+          </div>
+          <div class="col-lg-4">
+            <input type="text" class="form-control" placeholder="Your City" name="city" ng-model="city" required ng-minlength="2">
+            <div class="error" ng-show="addAdderess.city.$error.minlength && submitted"> Too short!</div>
+            <div class="error" ng-show="addAdderess.city.$error.required && submitted"> Please Enter Your City</div>
+          </div>
+          <div class="hidden-lg"><br></div>
+          <div class="col-lg-4">
+            <input type="number" class="form-control" placeholder="Enter Zipcode" name="zipcode" ng-model="zipcode" required ng-maxlength="6" ng-minlength="6">
+            <div class="error" ng-show="addAdderess.zipcode.$error.minlength && submitted"> Too short!</div>
+            <div class="error" ng-show="addAdderess.zipcode.$error.maxlength && submitted"> Too large!</div>
+            <div class="error" ng-show="addAdderess.zipcode.$error.required && submitted"> Please Enter Your Zipcode</div>
+          </div>
+        </div>
+        <!--  -->
+        <br>
+
+        <div class="clearfix">
+          <div class="col-lg-2 col-lg-offset-1">
+          </div>
+          <div class="col-lg-4">
+            <input type="text" class="form-control" placeholder="Your State" name="state" ng-model="state" required ng-minlength="2">
+            <div class="error" ng-show="addAdderess.state.$error.minlength && submitted"> Too short!</div>
+            <div class="error" ng-show="addAdderess.state.$error.required && submitted"> Please Enter Your State</div>
+          </div>
+          <div class="hidden-lg"><br></div>
+          <div class="col-lg-4">
+            <select class="form-control" ng-options="countryName.name for countryName in countryNames track by countryName.name" placeholder="Select Country" name="country" ng-model="country" required>
+              <option value="">-- select country --</option>
+            </select>
+            <div class="error" ng-show="addAdderess.country.$error.required && submitted"> Please Select Your Country</div>
+          </div>
+        </div>
+        <!--  -->
+        <br><br>
+
+        <div class="clearfix">
+          <div class="col-xs-11 col-lg-offset-1">
+            <button class="btn btn-success btn-style btn-blue" ng-click="addAddress(addAdderess)">Add Address</button>
+            <a href="#/" class="btn btn-default btn-style">Cancel</a>
+          </div>
+        </div>
+        <!--  -->
+
+      </form>
+
+    </div>
+  </div>
+</div>

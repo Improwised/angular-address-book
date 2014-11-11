@@ -1,0 +1,49 @@
+<!-- displaying address -->
+<div class="col-lg-12">
+  <div class="alert alert-danger" ng-show="sucessAddressDelete" role="alert">Address Successfully Deleted</div>
+  <div class="block">
+
+    <div class="block-header">
+      <div class="clearfix">
+        <div class="block-title pull-left">
+          <h2>List of Address</h2>
+        </div>
+        <div class="add-address pull-right">
+          <a href="#/add_address"><span class="glyphicon glyphicon-plus"></span>&nbsp;Add New Address</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="block-content">
+
+      <div class="clearfix">
+        <div class="input-group"  style="width: 300px;">
+          <input type="text" class="form-control" ng-model="SearchAddress" placeholder="Search Address">
+          <span class="input-group-addon"><span class="glyphicon glyphicon-search"></span></span>
+        </div>
+      </div>
+      <hr>
+      <table class="table table-hover address-table">
+        <thead>
+          <tr>
+            <th class="text-left">Name</th>
+            <th class="text-left th-width">Address</th>
+            <th class="text-center">Phone Number</th>
+            <th class="text-center">Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat="address in addresses | filter:SearchAddress">
+            <td class="text-left">{{address.name.firstname}}&nbsp;{{address.name.lastname}}</td>
+            <td class="text-left">{{address.address.street}}<br>{{address.address.city}}-{{address.address.zipcode}},<br>{{address.address.state}},<br>{{address.address.country}}.</td>
+            <td class="text-center">{{address.phoneno}}</td>
+            <td class="text-center">
+              <span class="glyphicon glyphicon-pencil icon icon-edit" ng-click="editAddress(address.id)"></span>
+              <span class="glyphicon glyphicon-remove icon icon-delete" ng-click="deleteAddress(address,$index)"></span>
+          </tr>
+        </tbody>
+      </table>
+
+    </div>
+  </div>
+</div>
